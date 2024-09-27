@@ -1,3 +1,4 @@
+#STORED XSS VULNERABILITIES
 This deals with stored XSS vulnerabilities. You will find a vulnerable Node.js website and an attacking website. The attacker logs in with their credentials (e.g., user1/password1) and injects the following script into the comments:
 ```bash
 <script>
