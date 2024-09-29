@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session'); // Utilisation des sessions pour gérer l'authentification
 const app = express();
+//const sanitizeHtml = require('sanitize-html');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -79,6 +80,16 @@ app.post('/comments', isAuthenticated, (req, res) => {
     comments.push(req.body.comment); // Ne filtre pas l'entrée de l'utilisateur
     res.redirect('/comments');
 });
+
+// Configuration pour bloquer toutes les balises HTML
+//app.post('/comments', isAuthenticated, (req, res) => {
+//    const sanitizedComment = sanitizeHtml(req.body.comment, {
+//        allowedTags: [], // Pas de balises autorisées
+//        allowedAttributes: {} // Pas d'attributs autorisés
+//    });
+//    comments.push(sanitizedComment); // Ajoute le commentaire nettoyé
+//    res.redirect('/comments');
+//});
 
 // Route pour se déconnecter
 app.post('/logout', (req, res) => {
