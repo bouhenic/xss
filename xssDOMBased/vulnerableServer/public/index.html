@@ -3,19 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Vulnérable XSS DOM</title>
+    <title>Recherche de produits</title>
 </head>
 <body>
-    <h1>Bienvenue sur notre site !</h1>
-    <p id="greeting"></p>
+    <header>
+        <h1>Bienvenue sur notre boutique en ligne</h1>
+    </header>
+    <main>
+        <form method="GET" action="">
+            <label for="search">Rechercher un produit :</label>
+            <input type="text" id="search" name="query" 
+placeholder="Entrez un mot-clé" value="">
+            <button type="submit">Rechercher</button>
+        </form>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('name');
-        if (name) {
-            // Injection directe dans le DOM via innerHTML
-            document.getElementById('greeting').innerHTML = `Bonjour, ${name}`;
-        }
-    </script>
+        <section id="results">
+            <h2>Résultats de recherche</h2>
+            <p id="result-message"></p>
+        </section>
+    </main>
 </body>
+
+<script>
+    // Récupère les paramètres de l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('query');
+
+    // Si une recherche a été effectuée, affiche un message
+    if (query) {
+        // Vulnérabilité : Injection directe dans le DOM sans échappement
+        document.getElementById('result-message').innerHTML = `Vous avez 
+recherché : "${query}"`;
+    }
+</script>
 </html>
