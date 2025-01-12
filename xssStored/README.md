@@ -20,6 +20,7 @@ Ce TP permet d'explorer et de comprendre les vulnérabilités XSS (Cross-Site Sc
 ```bash
 git clone http://github.com/bouhenic/xss.git
 cd xss/xssStored/vulnerableServer
+npm install
 ```
 
 2. Lancer l'application :
@@ -55,6 +56,7 @@ node index.js
 
    # Terminal 2 - Serveur Attaquant
    cd vulnerableServer
+   npm install
    node index.js    # Port 4000
    ```
 
