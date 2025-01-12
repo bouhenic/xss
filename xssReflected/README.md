@@ -16,8 +16,12 @@ Ce TP permet d'explorer et de comprendre les vulnérabilités XSS (Cross-Site Sc
 git clone http://github.com/bouhenic/xss.git
 cd xss/xssReflected/vulnerableServer
 ```
+2. Cloner le dépôt :
+```bash
+npm install
+```
 
-2. Lancer le serveur vulnérable :
+3. Lancer le serveur vulnérable :
 ```bash
 node index.js
 ```
@@ -43,6 +47,7 @@ node index.js
 1. Configuration du serveur attaquant :
 ```bash
 cd xss/xssReflected/hackerServer
+npm install
 node index.js
 ```
 
