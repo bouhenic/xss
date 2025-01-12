@@ -16,7 +16,7 @@ Ce TP permet d'explorer et de comprendre les vulnérabilités XSS (Cross-Site Sc
 git clone http://github.com/bouhenic/xss.git
 cd xss/xssReflected/vulnerableServer
 ```
-2. Cloner le dépôt :
+2. Installer les dépendances  :
 ```bash
 npm install
 ```
